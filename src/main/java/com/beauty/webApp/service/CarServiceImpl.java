@@ -29,11 +29,11 @@ public class CarServiceImpl implements CarService{
 
     @Override
     public CarForSales createCar(CarForSales car) {
-        return null;
+        return carRepository.save(car);
     }
 
     @Override
     public void deleteCarById(Long id) {
-
+        carRepository.deleteById(id);
     }
 }

@@ -2,9 +2,7 @@ package com.beauty.webApp.controller;
 
 import com.beauty.webApp.model.CarForSales;
 import com.beauty.webApp.service.CarService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +20,15 @@ public class CarController {
     @GetMapping("/all")
     public List<CarForSales> getAllCars() {
         return carService.getAllCars();
+    }
+
+    @PostMapping("/create")
+    public CarForSales createCar(@RequestBody CarForSales car) {
+        return carService.createCar(car);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCarById(@PathVariable("id") Long id) {
+        carService.deleteCarById(id);
     }
 }
